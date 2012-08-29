@@ -44,7 +44,8 @@ module NetFlix
       'oauth_signature_method' => 'HMAC-SHA1',
       'oauth_timestamp' => timestamp,
       'oauth_nonce' => nonce,
-      'oauth_version' => '1.0'
+      'oauth_version' => '1.0',
+      'v' => '2.0'
       }
     end
 

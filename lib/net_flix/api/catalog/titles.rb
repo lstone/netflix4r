@@ -15,6 +15,9 @@ module NetFlix
                     end
 
                     def getDetails(url, params = {})
+                        puts "getDetails"
+                        puts url
+                        puts params
                         NetFlix::Request.new(url: url, parameters: params).send
                     end
 

@@ -11,8 +11,7 @@ module NetFlix
           end
 
           def list(params = {})
-            request = NetFlix::Request.new(url: 'http://api.netflix.com/catalog/titles/full', parameters: params).send
-              puts request.to_yaml
+            NetFlix::Request.new(url: 'http://api.netflix.com/catalog/titles/full', parameters: params).send
           end
 
         end # class methods

@@ -35,6 +35,7 @@ module NetFlix
 
       def getSynopsis(url, params)
           data = NetFlix::API::Catalog::Titles.getSynopsis(url, params)
+          puts data
           TitleBuilder.from_xml(data)
       end
 

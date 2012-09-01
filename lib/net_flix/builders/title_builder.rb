@@ -26,7 +26,6 @@ class TitleBuilder
         set_release_year
         set_title
         set_web_page
-        set_synopsis
     end
 
     def set_id
@@ -63,11 +62,5 @@ class TitleBuilder
 
     def title
         @title
-    end
-
-    def synopsis
-        puts @data
-        node = @data.search('synopsis').first
-        @title.synopsis = node.content if node
     end
 end

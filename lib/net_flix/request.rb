@@ -19,7 +19,7 @@ module NetFlix
 
         def authenticator
             @auth = NetFlix::Authenticator.new(request: self, credentials: NetFlix.credentials)
-            puts @auth
+            puts @auth.to_yaml
             return @auth
         end
 

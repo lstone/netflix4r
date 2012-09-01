@@ -66,6 +66,7 @@ class TitleBuilder
     end
 
     def synopsis
+        puts @data
         node = @data.search('synopsis').first
         @title.synopsis = node.content if node
     end

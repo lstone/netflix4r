@@ -37,6 +37,10 @@ module NetFlix
           NetFlix::API::Catalog::Titles.getSynopsis(url, params)
       end
 
+      def getSimilars(url, params)
+          NetFlix::API::Catalog::Titles.getSimilars(title_id, params)
+      end
+
     end
   end # class Title
 end # module NetFlix

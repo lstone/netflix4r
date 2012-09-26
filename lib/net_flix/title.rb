@@ -38,7 +38,9 @@ module NetFlix
       end
 
       def getSimilars(title_id, title_type, params)
-          NetFlix::API::Catalog::Titles.getSimilars(title_id, title_type, params)
+          data = NetFlix::API::Catalog::Titles.getSimilars(title_id, title_type, params)
+          data.gsub!("similars_item", "title_index_item")
+          TitleBuilder.from_xml(data)
       end
 
     end

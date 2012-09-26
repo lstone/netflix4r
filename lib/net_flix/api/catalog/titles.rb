@@ -24,6 +24,11 @@ module NetFlix
                         NetFlix::Request.new(url: url, parameters: params).send
                     end
 
+                    def getSimilars(title_id, params = {})
+                        url = 'http://api-public.netflix.com/catalog/titles/type/' + title_id.to_s + '/similars'
+                        NetFlix::Request.new(url: url, parameters: params).send
+                    end
+
                 end # class methods
 
             end # class Titles

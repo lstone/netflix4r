@@ -7,11 +7,11 @@ module NetFlix
 
                     # example Title.search(term: 'sneakers', max_results: 10)
                     def search(params = {})
-                        NetFlix::Request.new(url: 'http://api.netflix.com/catalog/titles', parameters: params).send
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles', parameters: params).send
                     end
 
                     def list(params = {})
-                        NetFlix::Request.new(url: 'http://api.netflix.com/catalog/titles/index', parameters: params).send
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/index', parameters: params).send
                     end
 
                     def getDetails(url, params = {})
@@ -25,7 +25,7 @@ module NetFlix
                     end
 
                     def getSimilars(title_id, title_type, params = {})
-                        url = 'http://api.netflix.com/catalog/titles/' + title_type + '/' + title_id.to_s + '/similars'
+                        url = 'http://api-public.netflix.com/catalog/titles/' + title_type + '/' + title_id.to_s + '/similars'
                         NetFlix::Request.new(url: url, parameters: params).send
                     end
 

@@ -23,10 +23,10 @@ module NetFlix
 
     class << self
 
-      def complete_list
-        data = NetFlix::API::Catalog::Titles.index
-        TitleBuilder.from_xml(data)
-      end
+      #def complete_list
+      #  data = NetFlix::API::Catalog::Titles.index
+      #  TitleBuilder.from_xml(data)
+      #end
 
       def streaming_list
           data = NetFlix::API::Catalog::Titles.streaming

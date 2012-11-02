@@ -10,8 +10,15 @@ module NetFlix
                         NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles', parameters: params).send
                     end
 
-                    def list(params = {})
-                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/index', parameters: params).send
+                    #http://api-public.netflix.com/catalog/titles/streaming
+                    #http://api-public.netflix.com/catalog/titles/dvd
+
+                    def streaming(params = {})
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/streaming', parameters: params).send
+                    end
+
+                    def dvd(params = {})
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/dvd', parameters: params).send
                     end
 
                     def getDetails(url, params = {})

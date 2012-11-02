@@ -14,11 +14,11 @@ module NetFlix
                     #http://api-public.netflix.com/catalog/titles/dvd
 
                     def streaming(params = {})
-                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/streaming?v=1.5', parameters: params).send
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/streaming?v=2.0', parameters: params).send
                     end
 
                     def dvd(params = {})
-                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/dvd?v=1.5', parameters: params).send
+                        NetFlix::Request.new(url: 'http://api-public.netflix.com/catalog/titles/dvd?v=1.0', parameters: params).send
                     end
 
                     def getDetails(url, params = {})

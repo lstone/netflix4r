@@ -33,15 +33,16 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            get_response_with_redirect(target)
+            open(target)
         end
 
         def get_response_with_redirect(uri)
             r = Net::HTTP.get_response(uri)
             if r.code == "301"
-                r = Net::HTTP.get_response(URI.parse(r.header['location']))
+                #r = Net::HTTP.get_response(URI.parse())
+                Net::HTTP.get(r.header['location'])
             end
-            r
+            #r
         end
 
         def Request.encode(value)

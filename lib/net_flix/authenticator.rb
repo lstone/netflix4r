@@ -31,7 +31,7 @@ module NetFlix
         end
 
         def signature_key
-            "#{Request.encode(secret)}&#{Request.encode(access_token)}"
+            "#{Request.encode(secret)}"
         end
 
         def signature

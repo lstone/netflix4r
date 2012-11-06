@@ -33,8 +33,9 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            data = open(target).read
-            return data
+            open(target) do |fo|
+                puts open('http://wordpress.org/latest.zip').read
+            end
         end
 
         def Request.encode(value)

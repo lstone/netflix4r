@@ -32,9 +32,7 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            response = Net::HTTP.get(target)
-            puts response
-            return response
+            Net::HTTP.get(target)
         end
 
         def Request.encode(value)

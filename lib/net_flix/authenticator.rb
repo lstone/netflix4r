@@ -35,8 +35,6 @@ module NetFlix
         end
 
         def signature
-            puts "signature"
-            puts Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '')
             Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '')
         end
 
@@ -56,8 +54,6 @@ module NetFlix
 
         def add_signature!
             sign = {'oauth_signature' => Request.encode(signature)}
-            puts "add_signature!"
-            puts sign
             request.parameters = request.parameters.merge(sign)
         end
 

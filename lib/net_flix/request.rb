@@ -33,7 +33,7 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            http = Curl.get(target)
+            http = Curl.get(URI.parse(target))
             return http.body_str
         end
 

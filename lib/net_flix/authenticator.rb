@@ -31,11 +31,11 @@ module NetFlix
         end
 
         def signature_key
-            "#{Request.encode(secret)}"
+            "#{Request.encode(secret)}&#{Request.encode(access_token)}"
         end
 
         def signature
-            Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '')
+            Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string))
         end
 
         def authentication_parameters

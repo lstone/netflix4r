@@ -64,11 +64,11 @@ module NetFlix
         end
 
         def encoded_parameters
+            puts Request.encode request.parameter_string
             Request.encode request.parameter_string
         end
 
         def encoded_url
-            puts Request.encode request.url
             Request.encode request.url
         end
     end

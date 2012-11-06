@@ -1,5 +1,3 @@
-require 'uri'
-
 module NetFlix
     class Request < Valuable
 
@@ -28,7 +26,6 @@ module NetFlix
         end
 
         def log
-            puts "log"
             puts target.to_s
             NetFlix.log(target.to_s)
         end
@@ -36,22 +33,7 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            fetch(target)
-        end
-
-        def fetch(uri_str, limit = 10)
-            # You should choose better exception.
-            raise ArgumentError, 'HTTP redirect too deep' if limit == 0
-
-            url = URI.parse(uri_str.to_s)
-            req = Net::HTTP::Get.new(url.path, { 'User-Agent' => 'wis' })
-            response = Net::HTTP.start(url.host, url.port) { |http| http.request(req) }
-            case response
-                when Net::HTTPSuccess     then response
-                when Net::HTTPRedirection then fetch(response['location'], limit - 1)
-                else
-                    response.error!
-            end
+            open(target)
         end
 
         def Request.encode(value)

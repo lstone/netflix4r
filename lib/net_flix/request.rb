@@ -33,7 +33,8 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            open(target).read
+            data = open(target).read
+            return data
         end
 
         def Request.encode(value)

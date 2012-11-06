@@ -18,8 +18,6 @@ module NetFlix
         end
 
         def authenticator
-            puts "authenticator"
-            puts NetFlix::Authenticator.new(request: self, credentials: NetFlix.credentials)
             @auth = NetFlix::Authenticator.new(request: self, credentials: NetFlix.credentials)
         end
 
@@ -34,7 +32,9 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            Net::HTTP.get(target)
+            response = Net::HTTP.get(target)
+            puts response
+            return response
         end
 
         def Request.encode(value)

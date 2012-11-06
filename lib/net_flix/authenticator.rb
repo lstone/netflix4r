@@ -31,8 +31,6 @@ module NetFlix
         end
 
         def signature_key
-            puts "signature_key"
-            puts "#{Request.encode(secret)}&#{Request.encode(access_token)}"
             "#{Request.encode(secret)}&#{Request.encode(access_token)}"
         end
 
@@ -58,6 +56,8 @@ module NetFlix
 
         def add_signature!
             sign = {'oauth_signature' => Request.encode(signature)}
+            puts "add_signature!"
+            puts sign
             request.parameters = request.parameters.merge(sign)
         end
 
@@ -68,8 +68,6 @@ module NetFlix
         end
 
         def encoded_parameters
-            puts "encoded_parameters"
-            puts Request.encode request.parameter_string
             Request.encode request.parameter_string
         end
 

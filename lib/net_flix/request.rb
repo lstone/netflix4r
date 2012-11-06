@@ -26,6 +26,8 @@ module NetFlix
         end
 
         def log
+            puts "log"
+            puts target.to_s
             NetFlix.log(target.to_s)
         end
 
@@ -36,6 +38,8 @@ module NetFlix
         end
 
         def Request.encode(value)
+            puts "Request.encode"
+            puts value
             URI.escape(value, RESERVED_CHARACTERS) if value
         end
 

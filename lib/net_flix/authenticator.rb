@@ -35,7 +35,7 @@ module NetFlix
         end
 
         def signature
-            Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string))
+            Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '').chomp("=")
         end
 
         def authentication_parameters

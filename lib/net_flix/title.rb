@@ -28,13 +28,13 @@ module NetFlix
       #  TitleBuilder.from_xml(data)
       #end
 
-      def streaming_list(url, params)
-          data = NetFlix::API::Catalog::Titles.streaming(url, params)
+      def streaming_list(params)
+          NetFlix::API::Catalog::Titles.streaming(params)
           #TitleBuilder.from_xml(data)
       end
 
-      def dvd_list(url, params)
-          data = NetFlix::API::Catalog::Titles.dvd(url, params)
+      def dvd_list(params)
+          NetFlix::API::Catalog::Titles.dvd(params)
           #TitleBuilder.from_xml(data)
       end
 

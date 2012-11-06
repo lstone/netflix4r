@@ -32,10 +32,8 @@ module NetFlix
         end
 
         def send
-            puts authenticator.sign!
             authenticator.sign!
             log
-            puts Net::HTTP.get(target)
             Net::HTTP.get(target)
         end
 

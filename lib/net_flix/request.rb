@@ -41,8 +41,8 @@ module NetFlix
             # You should choose better exception.
             raise ArgumentError, 'HTTP redirect too deep' if limit == 0
 
-            url = URI.parse(uri_str)
-            req = Net::HTTP::Get.new(url.path, { 'User-Agent' => ua })
+            #url = URI.parse(uri_str)
+            req = Net::HTTP::Get.new(uri_str, { 'User-Agent' => ua })
             response = Net::HTTP.start(url.host, url.port) { |http| http.request(req) }
             case response
                 when Net::HTTPSuccess     then response

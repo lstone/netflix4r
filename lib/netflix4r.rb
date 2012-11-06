@@ -8,6 +8,7 @@
  require 'hmac-sha1'
  require 'json'
  require 'net/http'
+ require 'uri'
  require 'fileutils'
  require 'nokogiri'
  require 'valuable.rb'

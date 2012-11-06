@@ -31,10 +31,14 @@ module NetFlix
         end
 
         def signature_key
+            puts "signature_key"
+            puts "#{Request.encode(secret)}&#{Request.encode(access_token)}"
             "#{Request.encode(secret)}&#{Request.encode(access_token)}"
         end
 
         def signature
+            puts "signature"
+            puts Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '')
             Base64.encode64(HMAC::SHA1.digest(signature_key, signature_base_string)).chomp.gsub(/\n/, '')
         end
 
@@ -64,6 +68,7 @@ module NetFlix
         end
 
         def encoded_parameters
+            puts "encoded_parameters"
             puts Request.encode request.parameter_string
             Request.encode request.parameter_string
         end

@@ -35,7 +35,8 @@ module NetFlix
             log
             #http = Curl.get(URI.parse(target.to_s))
             #return http.body_str
-            RestClient.get(target.to_s){ |response, request, result, &block|
+            puts target
+            RestClient.get(target){ |response, request, result, &block|
                 if [301, 302, 307].include? response.code
                     response.follow_redirection(request, result, &block)
                 else

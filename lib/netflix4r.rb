@@ -20,6 +20,7 @@
  require 'net_flix'
  require 'net_flix/credentials'
  require 'net_flix/authenticator'
+ require 'net_flix/redirect_follower'
  require 'net_flix/request'
  require 'net_flix/title'
  require 'net_flix/api/catalog/titles'

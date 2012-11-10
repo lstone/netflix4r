@@ -33,16 +33,9 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            #http = Curl.get(URI.parse(target.to_s))
-            #return http.body_str
-            puts target
-            RestClient.get(target){ |response, request, result, &block|
-                if [301, 302, 307].include? response.code
-                    response.follow_redirection(request, result, &block)
-                else
-                    response.return!(request, result, &block)
-                end
-            }
+
+            response = RedirectFollower.new(target.to_s).resolve
+            response.body
         end
 
         def Request.encode(value)

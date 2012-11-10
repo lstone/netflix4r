@@ -33,8 +33,22 @@ module NetFlix
         def send
             authenticator.sign!
             log
-            http = Curl.get(URI.parse(target.to_s))
-            return http.body_str
+
+            http = Net::HTTP.new(target.to_s)
+            resp, data = http.get('/',nil)
+
+            #1."Location" response redirect...
+            if resp.response['Location']!=nil then
+                puts 'Direct to: ' + resp.response['Location']
+                redirectUrl=resp.response['Location']
+            end
+
+            #2.<META HTTP-EQUIV="REFRESH"> tag redirect...
+#            redirectUrl=data.scan(/<META HTTP-EQUIV=\"REFRESH\" CONTENT=\"0;
+#URL=(.*)\">/).to_s
+#            if redirectUrl != nil then
+#                puts 'Direct to: ' +redirectUrl
+#            end
         end
 
         def Request.encode(value)

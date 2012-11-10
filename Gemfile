@@ -6,6 +6,7 @@ gem 'activesupport'
 gem 'ruby-hmac'
 gem 'json'
 gem 'nokogiri'
+gem 'rest-client'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
